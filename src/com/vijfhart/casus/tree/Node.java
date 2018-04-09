@@ -1,8 +1,8 @@
 package com.vijfhart.casus.tree;
 
-public interface Node<E extends Node<E>> extends Comparable {
+public interface Node<E extends Node<E>> extends Comparable<E>, LevelComparable<E> {
 
-    int getParent();
-    int setParent();
+    E getParent();
+    void setParent(E parent);
     boolean isLeaf();
 }
