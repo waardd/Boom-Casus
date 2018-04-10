@@ -2,6 +2,8 @@ package com.vijfhart.casus.tree;
 
 public class NameNode implements Node{
 
+    private String naam;
+
     @Override
     public Node getParent() {
         return null;
@@ -26,4 +28,13 @@ public class NameNode implements Node{
     public int compareTo(Object o) {
         return 0;
     }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
 }
