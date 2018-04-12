@@ -35,7 +35,10 @@ public class NameNode implements Node<NameNode> {
     }
 
     public int compareLevelTo(NameNode other){
-        return 0;
+        if(this.parent == null) return -1;
+        if(this.parent == other.parent) return 0;
+        if(other.parent == null) return 1;
+        return this.parent.compareLevelTo(other.parent);
     }
 
     public int compareTo(NameNode other){
@@ -47,8 +50,8 @@ public class NameNode implements Node<NameNode> {
         return false;
     }
 
-    public String toString(Object node){
-        return naam+" met functie"+functie;
+    public String toString(){
+        return naam;
     }
 
     // voor aanmaak nieuwe medewerker

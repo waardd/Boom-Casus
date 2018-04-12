@@ -17,19 +17,57 @@ voorbeeld data
  */
 package com.vijfhart.casus.tree;
 
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 import java.util.*;
 
 public class TreeApp {
     public static void main(String args[]) {
 
-        NameNode a = new NameNode("a");
-        NameNode b = new NameNode("b",a);
+        NameNode h = new NameNode("Marko");
+        NameNode a = new NameNode("Danny",h);
+        NameNode b = new NameNode("Mark",h);
+        NameNode c = new NameNode("Gerrit",b);
+        NameNode d = new NameNode("Maarten",a);
+        NameNode e = new NameNode("Wendy",d);
+        NameNode f = new NameNode("Hans",d);
+        NameNode g = new NameNode("Joel",a);
+        NameNode i = new NameNode("Wiebe",f);
 
-        final NodeTree<NameNode> tree = new NodeTree<>();
+
+        //final NodeTree<NameNode> tree = new NodeTree<>();
+        final Tree<NameNode> tree = new NodeTree<>();
 
         tree.add(a);
         tree.add(b);
+        tree.add(c);
+        tree.add(d);
+        tree.add(e);
+        tree.add(f);
+        tree.add(g);
+        tree.add(h);
+        tree.add(i);
 
-        System.out.println(tree);
+
+        TreeIterator<NameNode> iter = tree.iterator();
+
+        while (iter.hasNext()){
+            NameNode node = iter.next();
+            System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level());
+        }
+
+        System.out.println("-------------------------------------------\n" +
+                "Vanaf Maarten\n" +
+                "-------------------------------------------");
+
+        iter.startWith(d);
+
+        while (iter.hasNext()){
+           NameNode node = iter.next();
+            System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level());
+        }
+
+
+
     }
 }

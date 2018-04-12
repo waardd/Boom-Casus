@@ -5,4 +5,6 @@ public interface Node<E extends Node<E>> extends Comparable<E>, LevelComparable<
     E getParent();
     void setParent(E parent);
     boolean isLeaf();
+
+    
 }
