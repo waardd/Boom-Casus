@@ -27,7 +27,17 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
 
             // implementeer hierin de methoden van TreeIterator
 
-            // bepaal het level van de medewerker.
+            /*
+            bepaal het level van de medewerker.
+            bepalen wat het level is: hoever is deze node van de root verwijderd?
+            Om in de level method en in andere methods van de iterator te kunnen verwijzen naar de huidige
+            node, bewaren we deze huidige node als instance variable van de TreeIterator.
+            Bewaar in de TreeIterator na elke aanroep van next() de opgehaalde node in een instantie
+            variabele met de naam current.
+            De methode level geeft 0 als de variabele current geen parent heeft. Als current wel een parent
+            heeft, tel dan het aantal keer dat van die parent weer de parent opgehaald kan worden.
+            Toon ter controle in TreeApp alle nodes met hun level.
+             */
             public int level(){
                 int level=0;
                 E follow=current;
@@ -40,6 +50,7 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
 
             @Override
             public boolean hasNext() {
+                //haal de volgende node op
                 return iterator.hasNext();
             }
 
@@ -49,12 +60,12 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
 
             @Override
             public E next() {
-                current = iterator.next(); //vullen met de node;
+                //vullen met de node;
+                current = iterator.next();
                 // geef volgende node
                 return current;
             }
 
-            @Override
             /*
             Als startWith(E node) wordt gebruikt, kunnen we maar een deel van de verzameling doorlopen:
             alleen het deel dat uiteindelijk onder de opgegeven node valt. Maak daarvoor binnen
@@ -62,6 +73,7 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
             tip). Vervang daarna het attribuut iterator door de Iterator van de gevulde List. Bewaar ook de
             opgegeven start node als instantie variabele.
             */
+            @Override
             public void startWith(E node) {
                 startNode = node;
                 List<E> partialNodeList = new ArrayList<>();

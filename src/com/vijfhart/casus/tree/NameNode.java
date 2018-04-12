@@ -6,7 +6,7 @@ public class NameNode implements Node<NameNode> {
     private String persnr;
     private String functie;
     private String mgr;
-    private String sal;
+    private int sal;
     private String toeslag;
     private String kantnr;
     private NameNode parent;
@@ -15,6 +15,13 @@ public class NameNode implements Node<NameNode> {
         //setParent(parent);
         this.parent=parent;
         this.naam=naam;
+    }
+
+    public NameNode(String naam, NameNode parent, int sal){
+        //setParent(parent);
+        this.parent=parent;
+        this.naam=naam;
+        this.sal=sal;
     }
 
     public NameNode(String naam){
@@ -26,9 +33,10 @@ public class NameNode implements Node<NameNode> {
     }
 
     // te verbeteren DDW
-//    public NameNode getNaam() {
-//        return naam;
-//    }
+    // Is dit goed??
+    public String getNaam() {
+        return naam;
+    }
 
     public void setParent(NameNode parent){
         this.parent=parent;
@@ -55,7 +63,7 @@ public class NameNode implements Node<NameNode> {
     }
 
     // voor aanmaak nieuwe medewerker
-    public void medewerker(String persnr,String naam,String functie,String mgr,String sal,String toeslag,String kantnr){
+    public void medewerker(String persnr,String naam,String functie,String mgr,int sal,String toeslag,String kantnr){
         this.persnr=persnr;
         this.naam=naam;
         this.functie=functie;
@@ -66,12 +74,12 @@ public class NameNode implements Node<NameNode> {
     }
 
     // overload
-    public void setMedewerkerSalaris(String sal, String toeslag) {
+    public void setMedewerkerSalaris(int sal, String toeslag) {
         this.sal = sal;
         this.toeslag=toeslag;
     }
 
-    public void setMedewerkerSalaris(String sal) {
+    public void setMedewerkerSalaris(int sal) {
         this.sal = sal;
     }
 
@@ -99,7 +107,7 @@ public class NameNode implements Node<NameNode> {
         return mgr;
     }
 
-    public String getSal() {
+    public int getSal() {
         return sal;
     }
 

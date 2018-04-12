@@ -33,6 +33,7 @@ public class TreeApp {
         NameNode f = new NameNode("Hans",d);
         NameNode g = new NameNode("Joel",a);
         NameNode i = new NameNode("Wiebe",f);
+        NameNode j = new NameNode("Martijn",e,1000); //kleine test met slaris
 
 
         //final NodeTree<NameNode> tree = new NodeTree<>();
@@ -47,6 +48,7 @@ public class TreeApp {
         tree.add(g);
         tree.add(h);
         tree.add(i);
+        tree.add(j);
 
 
         TreeIterator<NameNode> iter = tree.iterator();
@@ -64,7 +66,7 @@ public class TreeApp {
 
         while (iter.hasNext()){
            NameNode node = iter.next();
-            System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level());
+            System.out.println(node + " Met slaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
         }
 
 
