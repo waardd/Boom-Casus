@@ -1,6 +1,6 @@
 package com.vijfhart.casus.tree;
 
-public class NameNode implements Node {
+public class NameNode implements Node<NameNode> {
 
     private String naam;
     private String persnr;
@@ -9,29 +9,42 @@ public class NameNode implements Node {
     private String sal;
     private String toeslag;
     private String kantnr;
+    private NameNode parent;
 
-    @Override
-    public Node getParent() {
-        return null;
+    public NameNode(String naam, NameNode parent){
+        //setParent(parent);
+        this.parent=parent;
+        this.naam=naam;
     }
 
-    @Override
-    public void setParent(Node parent) {
+    public NameNode(String naam){
+        this.naam=naam;
+    }
+
+    public NameNode getParent() {
+        return parent;
+    }
+
+    // te verbeteren DDW
+//    public NameNode getNaam() {
+//        return naam;
+//    }
+
+    public void setParent(NameNode parent){
+        this.parent=parent;
+    }
+
+    public int compareLevelTo(NameNode other){
+        return 0;
+    }
+
+    public int compareTo(NameNode other){
+        return this.compareLevelTo(other);
     }
 
     @Override
     public boolean isLeaf() {
         return false;
-    }
-
-    @Override
-    public int compareLevelTo(Object node) {
-        return 0;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 
     public String toString(Object node){
@@ -71,10 +84,6 @@ public class NameNode implements Node {
         return false;
     }
 
-    public String getNaam() {
-        return naam;
-    }
-
     public String getPersnr() {
         return persnr;
     }
@@ -98,4 +107,6 @@ public class NameNode implements Node {
     public String getKantnr() {
         return kantnr;
     }
+
+
 }

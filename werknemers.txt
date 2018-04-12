@@ -1,5 +1,4 @@
-/*
-voorbeeld data
+PERSNR,NAAM,FUNCTIE,MGR,SAL,TOESLAG,KANTNR 
 "3381","SMITS","KLERK","7902","2400","","20"
 "3462","ALKEMA","VERKOPER","4621","2600","300","30"
 "3518","WALSTRA","VERKOPER","4621","2250","500","30"
@@ -14,22 +13,3 @@ voorbeeld data
 "7900","APPEL","KLERK","4621","1950","","30"
 "7902","VERMEULEN","ANALIST","3930","3900","","20"
 "8222","MANDERS","KLERK","5810","2300","","10"
- */
-package com.vijfhart.casus.tree;
-
-import java.util.*;
-
-public class TreeApp {
-    public static void main(String args[]) {
-
-        NameNode a = new NameNode("a");
-        NameNode b = new NameNode("b",a);
-
-        final NodeTree<NameNode> tree = new NodeTree<>();
-
-        tree.add(a);
-        tree.add(b);
-
-        System.out.println(tree);
-    }
-}
