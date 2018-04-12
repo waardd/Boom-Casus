@@ -33,7 +33,9 @@ public class TreeApp {
         NameNode f = new NameNode("Hans",d);
         NameNode g = new NameNode("Joel",a);
         NameNode i = new NameNode("Wiebe",f);
-        NameNode j = new NameNode("Martijn",e,1000); //kleine test met slaris
+        //Review Marl
+        //kleine test met slaris. Zie gebruik verderop (laatste lijstje)
+        NameNode j = new NameNode("Martijn",e,1000);
 
 
         //final NodeTree<NameNode> tree = new NodeTree<>();

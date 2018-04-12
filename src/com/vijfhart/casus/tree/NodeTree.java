@@ -54,8 +54,12 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
                 return iterator.hasNext();
             }
 
-            @Override
-            public void remove(){
+            // Review Mark
+            // Is dit de juiste manier??
+            public void remove(E node){
+                if(iterator.next()==null){
+                    nodeList.remove(node);
+                }
             }
 
             @Override
