@@ -33,6 +33,7 @@ public class NameNode extends AbstractNode implements Node<NameNode> {
     }
 
     @Override
+    // het op en aftellen van Childs werkt nog niet.
     public NameNode setParent() {
         // this node hoogt childCount op met 1
         this.parent.childCount=childCount++;
