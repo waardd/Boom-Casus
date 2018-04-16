@@ -1,6 +1,6 @@
 package com.vijfhart.casus.tree;
 
-public class NameNode implements Node<NameNode> {
+public class NameNode extends AbstractNode implements Node<NameNode> {
 
     private String naam;
     private String persnr;
@@ -30,6 +30,21 @@ public class NameNode implements Node<NameNode> {
 
     public NameNode getParent() {
         return parent;
+    }
+
+    @Override
+    public NameNode setParent() {
+        return null;
+    }
+
+    @Override
+    public NameNode compareTo() {
+        return null;
+    }
+
+    @Override
+    public NameNode compareLevelTo() {
+        return null;
     }
 
     // te verbeteren DDW

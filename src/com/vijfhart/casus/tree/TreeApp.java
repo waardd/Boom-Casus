@@ -52,7 +52,6 @@ public class TreeApp {
         tree.add(i);
         tree.add(j);
 
-
         TreeIterator<NameNode> iter = tree.iterator();
 
         while (iter.hasNext()){
