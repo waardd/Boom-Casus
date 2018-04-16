@@ -68,7 +68,7 @@ public class TreeApp {
 
         while (iter.hasNext()){
            NameNode node = iter.next();
-            System.out.println(node + " Met slaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
+            System.out.println(node + " Met salaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
         }
 
 

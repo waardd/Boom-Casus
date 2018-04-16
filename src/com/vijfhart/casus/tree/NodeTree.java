@@ -54,11 +54,13 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
                 return iterator.hasNext();
             }
 
-            // Review Mark
-            // Is dit de juiste manier??
             public void remove(E node){
-                if(iterator.next()==null){
+                //als node een leaf is mag je hem weghalen
+                if(this.isLeaf()){
                     nodeList.remove(node);
+                } else
+                {
+                    System.out.println("Er zijn nog medewerkers onder deze medewerker.");
                 }
             }
 
