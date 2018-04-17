@@ -7,6 +7,10 @@ import java.util.List;
 
 public class NodeTree<E extends Node<E>> implements Tree<E> {
 
+    boolean firstNextCalled;
+    boolean iteratorStarted;
+    boolean nextCalled;
+    boolean startWithStarted;
     private List<E> nodeList = new ArrayList<>();
 
     public void add(E node){
@@ -14,14 +18,18 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
     }
 
     public TreeIterator<E> iterator() {
-        return new TreeIterator<E>(){
+        iteratorStarted=true;
+        nextCalled=false;
+        return new TreeIterator<E>() {
             // sorteermethode
             // static initializer block
             Iterator<E> iterator;
             E current;
             E volgendeNode;
             E startNode;
-            {Collections.sort(nodeList);
+
+            {
+                Collections.sort(nodeList);
                 iterator = nodeList.iterator();
             }
 
@@ -39,13 +47,24 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
             Toon ter controle in TreeApp alle nodes met hun level.
              */
             public int level(){
-                int level=0;
+                int level;
+                if(startWithStarted) {level=0;
                 E follow=current;
                 while(follow.getParent() != null){
                     level += 1;
                     follow=follow.getParent();
                 }
-                return level;
+                return level;}
+                else
+                {
+                    level=0;
+                    E follow=current;
+                    while(follow.getParent() != null){
+                        level += 1;
+                        follow=follow.getParent();
+                    }
+                    return level;
+                }
             }
 
             @Override
@@ -55,17 +74,21 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
             }
 
             public void remove(E node){
+                if(nextCalled){
+                    throw new IllegalStateException("Next was called before remove");
+                }
                 //als node een leaf is mag je hem weghalen
                 if(this.isLeaf()){
                     nodeList.remove(node);
                 } else
                 {
-                    System.out.println("Er zijn nog medewerkers onder deze medewerker.");
+                    throw new IllegalArgumentException("This Node (Employee) has childs (Employees).");
                 }
             }
 
             @Override
             public E next() {
+                nextCalled=true;
                 //vullen met de node;
                 current = iterator.next();
                 // geef volgende node
@@ -81,6 +104,9 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
             */
             @Override
             public void startWith(E node) {
+                if(nextCalled){
+                    throw new IllegalStateException("StartWith can only be called before the first next call");
+                }
                 startNode = node;
                 List<E> partialNodeList = new ArrayList<>();
                 //zoek de nodes
@@ -91,6 +117,8 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
                 }
                 iterator =  partialNodeList.iterator();
                 //boolean descendant = descendantOfStartWith(E node);
+                iteratorStarted=true;
+                startWithStarted=true;
             }
 
             /*
@@ -110,6 +138,9 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
                 //return true;
                 return false;
             }
+
         };
+
     }
+
 }

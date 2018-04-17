@@ -8,6 +8,7 @@ abstract class AbstractNode implements Node<NameNode> {
     public abstract NameNode setParent();
     public abstract NameNode compareTo();
     public abstract NameNode compareLevelTo();
+    public abstract boolean isLeaf();
 
     private boolean isDescendant(NameNode Node){
         return false;

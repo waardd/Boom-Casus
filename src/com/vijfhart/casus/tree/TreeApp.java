@@ -53,19 +53,18 @@ public class TreeApp {
         tree.add(j);
 
         TreeIterator<NameNode> iter = tree.iterator();
-
         while (iter.hasNext()){
             NameNode node = iter.next();
             System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level()
-                    +"(testfase childs"+node.getChildCount()+")");
+                    +"(testfase childs "+node.getChildCount()+")");
         }
+
 
         System.out.println("-------------------------------------------\n" +
                 "Vanaf Maarten\n" +
                 "-------------------------------------------");
-
+        iter = tree.iterator();
         iter.startWith(d);
-
         while (iter.hasNext()){
            NameNode node = iter.next();
             System.out.println(node + " Met salaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
