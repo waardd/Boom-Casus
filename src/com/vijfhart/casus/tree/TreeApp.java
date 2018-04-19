@@ -24,15 +24,15 @@ import java.util.*;
 public class TreeApp {
     public static void main(String args[]) {
 
-        NameNode h = new NameNode("Marko");
-        NameNode a = new NameNode("Danny",h);
-        NameNode b = new NameNode("Mark",h);
-        NameNode c = new NameNode("Gerrit",b);
-        NameNode d = new NameNode("Maarten",a);
-        NameNode e = new NameNode("Wendy",d);
-        NameNode f = new NameNode("Hans",d);
-        NameNode g = new NameNode("Joel",a);
-        NameNode i = new NameNode("Wiebe",f);
+        NameNode h = new NameNode("Marko",null,100000);
+        NameNode a = new NameNode("Danny",h,50000);
+        NameNode b = new NameNode("Mark",h,50000);
+        NameNode c = new NameNode("Gerrit",b,20000);
+        NameNode d = new NameNode("Maarten",a,20000);
+        NameNode e = new NameNode("Wendy",d,20000);
+        NameNode f = new NameNode("Hans",d,2000);
+        NameNode g = new NameNode("Joel",a,2000);
+        NameNode i = new NameNode("Wiebe",f,1500);
         //Review Marl
         //kleine test met slaris. Zie gebruik verderop (laatste lijstje)
         NameNode j = new NameNode("Martijn",e,1000);
@@ -55,6 +55,10 @@ public class TreeApp {
         TreeIterator<NameNode> iter = tree.iterator();
         while (iter.hasNext()){
             NameNode node = iter.next();
+            if(node.getParent()==null){
+                System.out.println(node + " Is de baas met level " + iter.level()
+                        +"(testfase childs "+node.getChildCount()+")");
+            } else
             System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level()
                     +"(testfase childs "+node.getChildCount()+")");
         }

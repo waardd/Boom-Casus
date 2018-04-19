@@ -50,7 +50,7 @@ public class NodeTree<E extends Node<E>> implements Tree<E> {
                 int level;
                 if(startWithStarted) {level=0;
                 E follow=current;
-                while(follow.getParent() != null){
+                while(follow.getParent() != null && follow != startNode){
                     level += 1;
                     follow=follow.getParent();
                 }
