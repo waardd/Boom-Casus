@@ -76,6 +76,12 @@ public class NameNode extends AbstractNode<NameNode> implements Node<NameNode> {
     }
 
     public int compareTo(NameNode other){
+//        if (this.getParent() < other.getParent()) {
+//            return -1;
+//        } else if (this.getParent() > other.getParent()) {
+//            return 1;
+//        } else
+//        {
         return this.compareLevelTo(other);
     }
 
