@@ -56,7 +56,7 @@ public class TreeApp {
         while (iter.hasNext()){
             NameNode node = iter.next();
             if(node.getParent()==null){
-                System.out.println(node + " Is de baas met level " + iter.level()
+                System.out.println(node + " is de baas met level " + iter.level()
                         +"(testfase childs "+node.getChildCount()+")");
             } else
             System.out.println(node + " Heeft als baas " + node.getParent()+ " met level " + iter.level()
