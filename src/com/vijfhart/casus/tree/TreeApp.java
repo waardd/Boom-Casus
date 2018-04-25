@@ -63,16 +63,16 @@ public class TreeApp {
                     +"(testfase childs "+node.getChildCount()+")");
         }
 
-
-        System.out.println("-------------------------------------------\n" +
-                "Vanaf Maarten\n" +
-                "-------------------------------------------");
-        iter = tree.iterator();
-        iter.startWith(d);
-        while (iter.hasNext()){
-           NameNode node = iter.next();
-            System.out.println(node + " Met salaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
-        }
+//        // Show tree from x
+//        System.out.println("-------------------------------------------\n" +
+//                "Vanaf Maarten\n" +
+//                "-------------------------------------------");
+//        iter = tree.iterator();
+//        iter.startWith(d);
+//        while (iter.hasNext()){
+//           NameNode node = iter.next();
+//            System.out.println(node + " Met salaris "+node.getSal()+" Heeft als baas " + node.getParent()+ " met level " + iter.level());
+//        }
 
 
 
